@@ -1,4 +1,5 @@
 import allure
+
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
 from locators.base_locators import *
@@ -24,16 +25,9 @@ class OrderPage(BasePage):
         self.click_to_element(OrderPageLocators.RENTAL_PERIOD_ONE_DAY)
         self.add_text_to_element(OrderPageLocators.COMMENT_INPUT, data.comment)
         self.click_to_element(OrderPageLocators.BUTTON_ORDER)
+        self.click_to_element(OrderPageLocators.BUTTON_YES)
+
 
     @allure.step('Проверка успешного оформления заказа')
     def order_issued_check(self):
         return self.get_text_from_element(OrderPageLocators.ORDER_STATUS)
-
-    @allure.step('Переход по лого Яндекс')
-    def click_on_yandex_logo(self):
-        self.click_to_element(BasePageLocators.LOGO_SCOOTER)
-
-    @allure.step('Переход по лого Самокат')
-    def click_on_scooter_logo(self):
-        self.click_to_element(BasePageLocators.LOGO_YANDEX)
-        self.switch_tab(DzenLocators.DZEN_LOGO)
