@@ -13,4 +13,4 @@ class LogoActions(BasePage):
     @allure.step('Переход по лого Самокат')
     def click_on_scooter_logo(self):
         self.click_to_element(BasePageLocators.LOGO_YANDEX)
-        self.switch_tab(DzenLocators.DZEN_LOGO)
+        self.switch_tab(BasePageLocators.DZEN_LOGO)
